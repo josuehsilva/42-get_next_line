@@ -6,7 +6,7 @@
 /*   By: joshenri <joshenri@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:00:54 by joshenri          #+#    #+#             */
-/*   Updated: 2021/10/15 07:22:32 by joshenri         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:48:41 by joshenri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,15 @@ char	*ft_strdup(const char *str)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
 	char	*newstr;
 
-	if (!s1 || !s2)
-		return (0);
-	newstr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!newstr)
-		return (0);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		newstr[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j] != '\0')
-	{
-		newstr[i] = s2[j];
-		i++;
-		j++;
-	}
-	newstr[i] = '\0';
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	newstr = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (newstr == NULL)
+		return (NULL);
+	ft_strlcpy(newstr, s1, ft_strlen(s1) + 1);
+	ft_strlcat(newstr, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (newstr);
 }
 

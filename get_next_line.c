@@ -6,13 +6,13 @@
 /*   By: joshenri <joshenri@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:00:47 by joshenri          #+#    #+#             */
-/*   Updated: 2021/10/15 07:27:02 by joshenri         ###   ########.fr       */
+/*   Updated: 2021/10/15 23:39:47 by joshenri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*get_line(char **text)
+char	*get_line(char **text)
 {
 	size_t	i;
 	char	*temp;
@@ -25,7 +25,8 @@ static char	*get_line(char **text)
 	if ((*text)[i] == '\n')
 	{
 		line_output = ft_substr(*text, 0, i + 1);
-		temp = ft_strdup(*text + i + 1);
+		temp = ft_strdup(*text + i);
+		//printf("\n\n*** %s ***\n\n", temp);
 		free(*text);
 		*text = temp;
 		if (!**text)
