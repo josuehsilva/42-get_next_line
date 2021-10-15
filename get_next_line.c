@@ -6,7 +6,7 @@
 /*   By: joshenri <joshenri@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:00:47 by joshenri          #+#    #+#             */
-/*   Updated: 2021/10/15 18:48:02 by joshenri         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:57:38 by joshenri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*get_line(char **text)
 	if ((*text)[i] == '\n')
 	{
 		line_output = ft_substr(*text, 0, i + 1);
-		temp = ft_strdup(*text + i);
+		temp = ft_strdup(*text + i + 1);
 		free(*text);
 		*text = temp;
 		if (!**text)
