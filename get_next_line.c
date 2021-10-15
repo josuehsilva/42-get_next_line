@@ -6,13 +6,13 @@
 /*   By: joshenri <joshenri@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:00:47 by joshenri          #+#    #+#             */
-/*   Updated: 2021/10/15 23:39:47 by joshenri         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:48:02 by joshenri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_line(char **text)
+static char	*get_line(char **text)
 {
 	size_t	i;
 	char	*temp;
@@ -26,7 +26,6 @@ char	*get_line(char **text)
 	{
 		line_output = ft_substr(*text, 0, i + 1);
 		temp = ft_strdup(*text + i);
-		//printf("\n\n*** %s ***\n\n", temp);
 		free(*text);
 		*text = temp;
 		if (!**text)
@@ -65,10 +64,9 @@ static void	read_file(int fd, char *buffer, char **b_backup, ssize_t read_bytes)
 char	*get_next_line(int fd)
 {
 	char		*buffer;
-	static char	*b_backup;
+	static char	*b_backup = NULL;
 	ssize_t		read_bytes;
 
-	b_backup = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
