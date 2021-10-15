@@ -6,7 +6,7 @@
 /*   By: joshenri <joshenri@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:00:58 by joshenri          #+#    #+#             */
-/*   Updated: 2021/10/15 07:26:57 by joshenri         ###   ########.fr       */
+/*   Updated: 2021/10/16 00:40:38 by joshenri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
